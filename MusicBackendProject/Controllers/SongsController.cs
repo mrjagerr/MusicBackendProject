@@ -53,14 +53,46 @@ namespace MusicBackendProject.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id,[FromBody] Song song)
         {
-            if (!ModelState.IsValid)
-                return BadRequest("Not a valid model");
-        }
+            
+
+
+                 var existingsong = _context.Songs.Where(s => s.Id == id).FirstOrDefault();
+                                                        
+
+                if (existingsong != null)
+                {
+                    existingsong.Title = song.Title;
+                    existingsong.Artist = song.Artist;
+                    existingsong.Album = song.Album;
+                    existingsong.ReleaseDate = song.ReleaseDate;
+                    existingsong.Genre = song.Genre;
+                    _context.SaveChanges();
+                   
+                    
+                }
+                else
+                {
+                    return NotFound();
+                }
+
+                return StatusCode(200, song);
+            }
+
+            
+        
 
         // DELETE api/<SongsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public IActionResult Delete(int id)
         {
+            var song = _context.Songs.Find(id);
+            if (song == null)
+            {
+                return NotFound();
+            }
+            _context.Songs.Remove(song);
+            _context.SaveChanges();
+            return NoContent();
         }
     }
 }
