@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "e4583634-ae4f-4231-a190-be17a36a8f16",
+		"name": "Music_Backend_Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29363849"
+	},
+	"item": [
+		{
+			"name": "Get All Songs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7221/api/Songs",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7221",
+					"path": [
+						"api",
+						"Songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"Title\": \"\",\r\n\"Artist\": \"\",\r\n\"Album\": \"\",\r\n\"ReleaseDate\": \"\",\r\n\"Genre\": \"\",\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7221/api/Songs",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7221",
+					"path": [
+						"api",
+						"Songs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get(ID)",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Replace",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7221/api/Songs/1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7221",
+					"path": [
+						"api",
+						"Songs",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
